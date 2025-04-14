@@ -15,9 +15,6 @@ pip install -r requirements.txt
 # Package the virtual env.
 venv-pack -o .venv.tar.gz
 
-# Initialize Cassandra
-python app.py
-
 # Collect and prepare data
 bash prepare_data.sh
 
