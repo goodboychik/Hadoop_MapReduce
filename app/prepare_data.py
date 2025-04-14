@@ -22,4 +22,4 @@ def create_doc(row):
 df.foreach(create_doc)
 
 # Save data in HDFS for the MapReduce job
-df.select("id", "title", "text").write.mode("overwrite").option("sep", "\t").csv("/index/data")
+df.write.mode("overwrite").option("sep", "\t").csv("/index/data")
