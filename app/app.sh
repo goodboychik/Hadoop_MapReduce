@@ -2,25 +2,28 @@
 # Start ssh server
 service ssh restart 
 
-# Starting the services
+echo "Starting the services..."
 bash start-services.sh
 
-# Creating a virtual environment
+echo "Creating a virtual environment..."
 python3 -m venv .venv
 source .venv/bin/activate
 
-# Install required packages
+echo "Install packages..."
 pip install -r requirements.txt  
 
-# Package the virtual env.
+echo "Package the virtual env..."
 venv-pack -o .venv.tar.gz
 
-# Collect and prepare data
+echo "Collect data..."
 bash prepare_data.sh
 
-# Run the indexer
-bash index.sh /index/data
+echo "Run the indexer..."
+bash index.sh data/sample.txt
 
 # Run sample searches
 echo "Running sample searches..."
 bash search.sh "death"
+bash search.sh "Economist book"
+bash search.sh "Hero of our time"
+bash search.sh "crime fiction"
